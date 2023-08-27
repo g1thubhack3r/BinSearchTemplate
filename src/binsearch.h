@@ -1,14 +1,20 @@
+// Binary Search Template Header
+
+/*
+ This library is under a GNU LGPLv2.1+ license.
+*/
+
 #ifdef __GNUC__
 #pragma once
 #endif
 
 #ifndef _BINSEARCH
-#define _BINSEARCH 1
+#define _BINSEARCH
 
 #include <vector>
 
 /*
- A template of middle bound binary search.
+ A template of normal / middle bound binary search.
  T must support operator <, >, ==.
  @return Index of target, if not found return -1
 */
@@ -51,8 +57,9 @@ int lbound_binsearch(const std::vector<T> &data, T target)
 		else r = mid;
 	}
 	
-	// Replace left to right is OK.
-	return (nums[left] == target ? (int)left : -1);
+	// Replace l to r is OK.
+	if (l == data.size() || data[l] != target) return -1; 
+	return (int)l;
 }
 
 /*
@@ -70,13 +77,14 @@ int rbound_binsearch(const std::vector<T> &data, T target)
 	{
 		unsigned int mid = (l + r) / 2;
 		
-		if (nums[mid] < target) l = mid + 1;
-		else if (nums[mid] > target) r = mid;
+		if (data[mid] < target) l = mid + 1;
+		else if (data[mid] > target) r = mid;
 		else l = mid + 1;
 	}
 	
-	// Replace left to right is OK.
-	return (nums[left - 1] == target ? (int)(left - 1) : -1);
+	// Replace r to l is OK.
+	if (r == 0 || data[r - 1] != target) return -1;
+	return (int)(r - 1);
 }
 
 #endif
