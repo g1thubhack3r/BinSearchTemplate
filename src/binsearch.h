@@ -2,8 +2,8 @@
 
 /*
  Note: Binary search is only for sorted sequence.
- This version of binary search is only for ascending sequece.
- This header will not do checks, you can check using the is_sorted function in the C++ STL library.
+ This version of binary search is only for ascending sequence.
+ This header will not do checks, you may check using the is_sorted function in the C++ STL library.
  This library is under a GNU LGPLv2.1+ license.
 */
 
