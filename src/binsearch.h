@@ -1,6 +1,9 @@
 // Binary Search Template Header
 
 /*
+ Note: Binary search is only for sorted sequence.
+ This version of binary search is only for ascending sequece.
+ This header will not do checks, you can check using the is_sorted function in the C++ STL library.
  This library is under a GNU LGPLv2.1+ license.
 */
 
@@ -19,7 +22,7 @@
  @return Index of target, if not found return -1
 */
 template <typename T>
-int binsearch(const std::vector<T> &data, T target) 
+int binsearch(const std::vector<T> &data, const T &target) 
 {
 	if (data.size() == 0) return -1;
 	unsigned int l = 0, r = data.size();
@@ -43,7 +46,7 @@ int binsearch(const std::vector<T> &data, T target)
  @return Index of target, if not found return -1
 */
 template <typename T>
-int lbound_binsearch(const std::vector<T> &data, T target)
+int lbound_binsearch(const std::vector<T> &data, const T &target)
 {
 	if (data.size() == 0) return -1;
 	unsigned int l = 0, r = data.size();
@@ -68,7 +71,7 @@ int lbound_binsearch(const std::vector<T> &data, T target)
  @return Index of target, if not found return -1
 */
 template <typename T>
-int rbound_binsearch(const std::vector<T> &data, T target)
+int rbound_binsearch(const std::vector<T> &data, const T &target)
 {
 	if (data.size() == 0) return -1;
 	unsigned int l = 0, r = data.size();
